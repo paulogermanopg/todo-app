@@ -8,26 +8,26 @@ module.exports = {
         filename: './app.js'
     },
     devServer: {
-        port:8080,
-        contentBase: "./public",
+        port: 8080,
+        contentBase: './public',
     },
     resolve: {
-        extrensions: ['','.js', '.jsx'],
+        extensions: ['','.js', '.jsx'],
         alias: {
-            modules: __dirname + '/node_modues'
+            modules: __dirname + '/node_modules'
         }
     },
-    plugin: [
+    plugins: [
         new ExtractTextPlugin('app.css')
     ],
     module: {
-        loader:[{
+        loaders:[{
             test: /.js[x]?$/,
             loader: 'babel-loader',
-            exclude: /node_modues/,
+            exclude: /node_modules/,
             query: {
                 presets: ['es2015', 'react'],
-                plugin: ['transform-Object-rest-spread']
+                plugins: ['transform-object-rest-spread']
             }
         }, {
             test:/\.css$/,
